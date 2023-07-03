@@ -48,7 +48,8 @@ with open( budget_csv, 'r') as csvfile:
     max_decrease_index = changes.index(maximum_change_decrease)
     max_decrease_date = data[max_decrease_index + 1][0]
 
-print(f"""
+# output text
+output = (f"""
 Financial Analysis
 
 ----------------------------
@@ -59,24 +60,13 @@ Average Change: ${average_change}
 Greatest Increase in Profits: {max_increase_date} (${maximum_change_increase})
 Greatest Decrease in Profits: {max_decrease_date} (${maximum_change_decrease})
 """)
-
-
+print(output)
 
 # Specify the file to write to
 output_path = os.path.join( "analysis", "analysis.txt")
 
 # Open the file using "write" mode.
 with open(output_path, 'w') as txtfile:
-    txtfile.write(f"""
-Financial Analysis
-
-----------------------------
-
-Total Months: {total_months}
-Total: ${net_total}
-Average Change: ${average_change}
-Greatest Increase in Profits: {max_increase_date} (${maximum_change_increase})
-Greatest Decrease in Profits: {max_decrease_date} (${maximum_change_decrease})
-""")
+    txtfile.write(output)
 
 print("Analysis results have been saved to analysis.txt.")
