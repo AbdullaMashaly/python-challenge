@@ -30,7 +30,7 @@ with open( election_csv, 'r') as csvfile:
 for candidate in candidates_votes:
     votes = candidates_votes[candidate]["votes"]
     percentage = (votes/total_votes) * 100
-    candidates_votes[candidate]["percentage"] = round(percentage, 2)
+    candidates_votes[candidate]["percentage"] = round(percentage, 3)
 
 # To get The winner of the election based on popular vote
 new_votes_dict = candidates_votes
